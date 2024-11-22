@@ -1,38 +1,46 @@
-.App {
+.app-container {
   text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.song-library, .playlist {
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.song-item, .playlist-item {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 10px 0;
+}
+
+.add-button, .remove-button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
   color: white;
+  border-radius: 3px;
 }
 
-.App-link {
-  color: #61dafb;
+.add-button {
+  background-color: #28a745;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.add-button:hover {
+  background-color: #218838;
+}
+
+.remove-button {
+  background-color: #dc3545;
+}
+
+.remove-button:hover {
+  background-color: #c82333;
 }

@@ -1,23 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import SongLibrary from './components/SongLibrary';
+import Playlist from './components/Playlist';
+import { useState } from 'react';
 
 function App() {
+
+  const [songs] = useState([
+    {id: 1, title: "Blinding Lights", artist: "The weeknd"},
+    {id: 2, title: "Bevitating", artist: "Dua Lipa"},
+    {id: 3, title: "Shape of you", artist: "ED Sheeran"},
+    {id: 4, title: "happier Than ever", artist: "Billie Eliish"},
+  ]);
+
+  const [playlist, setPlaylist] = useState([]);
+
+  console.log(playlist);
+
+  // add song to playlist
+  const addToPlaylist = (song) => {
+    if(!playlist.find((item) => item.id === song.id)) {
+      setPlaylist([...playlist, song]);
+    }
+  }
+
+  // remove song from playlist
+  const removeSong =(id) => {
+    setPlaylist(playlist.filter((song) => song.id !== id));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1>Music Playlist App</h1>
+      <SongLibrary songs={songs} addToPlaylist={addToPlaylist} />
+      <Playlist playlist={playlist} removeSong={removeSong} />
     </div>
   );
 }
